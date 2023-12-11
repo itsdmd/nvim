@@ -105,3 +105,7 @@ require("telescope").setup({
 		},
 	},
 })
+
+require("hop").setup({
+	multi_windows = true,
+})
