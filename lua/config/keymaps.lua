@@ -2,82 +2,63 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- ----------- Navigation ----------- --
-vim.api.nvim_set_keymap("n", "n", "h", {
+vim.keymap.set({ "n", "v" }, "n", "h", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "e", "j", {
+vim.keymap.set({ "n", "v" }, "e", "j", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "i", "k", {
+vim.keymap.set({ "n", "v" }, "i", "k", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "o", "l", {
-	noremap = true,
-})
-
-vim.api.nvim_set_keymap("v", "n", "h", {
-	noremap = true,
-})
-vim.api.nvim_set_keymap("v", "e", "j", {
-	noremap = true,
-})
-vim.api.nvim_set_keymap("v", "i", "k", {
-	noremap = true,
-})
-vim.api.nvim_set_keymap("v", "o", "l", {
+vim.keymap.set({ "n", "v" }, "o", "l", {
 	noremap = true,
 })
 
-vim.api.nvim_set_keymap("n", "<S-h>", "<S-n>", {
+vim.keymap.set({ "n", "v" }, "<S-h>", "<S-n>", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "<S-l>", "<S-o>", {
-	noremap = true,
-})
-vim.api.nvim_set_keymap("v", "<S-h>", "<S-n>", {
-	noremap = true,
-})
-vim.api.nvim_set_keymap("v", "<S-l>", "<S-o>", {
+vim.keymap.set({ "n", "v" }, "<S-l>", "<S-o>", {
 	noremap = true,
 })
 
-vim.api.nvim_set_keymap("n", "{", "{zz", {
+vim.keymap.set({ "n", "v" }, "{", "{zz", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "}", "}zz", {
+vim.keymap.set({ "n", "v" }, "}", "}zz", {
 	noremap = true,
 })
 
 -- Next search result
-vim.api.nvim_set_keymap("n", "j", "nzz", {
+vim.keymap.set({ "n", "v" }, "j", "nzz", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "J", "Nzz", {
+vim.keymap.set({ "n", "v" }, "J", "Nzz", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "<M-j>", "J", {
+vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
 	noremap = true,
 })
 
 -- Window navigation
-vim.api.nvim_set_keymap("n", "<C-n>", "<C-h>", {
+vim.keymap.set("n", "<C-n>", "<C-h>", {
 	noremap = false,
 })
-vim.api.nvim_set_keymap("n", "<C-e>", "<C-j>", {
+vim.keymap.set("n", "<C-e>", "<C-j>", {
 	noremap = false,
 })
-vim.api.nvim_set_keymap("n", "<C-i>", "<C-k>", {
+vim.keymap.set("n", "<C-i>", "<C-k>", {
 	noremap = false,
 })
-vim.api.nvim_set_keymap("n", "<C-o>", "<C-l>", {
+vim.keymap.set("n", "<C-o>", "<C-l>", {
 	noremap = false,
 })
 
 -- Page up/down
-vim.api.nvim_set_keymap("n", "<PageUp>", "<PageUp>zz", {
+vim.keymap.set({ "n", "v" }, "<PageUp>", "<PageUp>zz", {
 	noremap = true,
 })
-vim.api.nvim_set_keymap("n", "<PageDown>", "<PageDown>zz", {
+vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {
 	noremap = true,
 })
 
@@ -100,7 +81,7 @@ end, {
 	remap = true,
 	silent = true,
 })
-vim.api.nvim_set_keymap("", "ff", "f", {
+vim.keymap.set("", "ff", "f", {
 	noremap = true,
 	silent = true,
 })
@@ -123,18 +104,18 @@ end, {
 	remap = true,
 	silent = true,
 })
-vim.api.nvim_set_keymap("", "tt", "t", {
+vim.keymap.set("", "tt", "t", {
 	noremap = true,
 	silent = true,
 })
 
--- Pattern
 vim.keymap.set("", "fp", function()
 	hop.hint_patterns({
 		current_line_only = false,
 	})
 end, {
-	noremap = true,
+	remap = true,
+	silent = true,
 })
 vim.keymap.set("", "tp", function()
 	hop.hint_patterns({
@@ -142,16 +123,17 @@ vim.keymap.set("", "tp", function()
 		hint_offset = -1,
 	})
 end, {
-	noremap = true,
+	remap = true,
+	silent = true,
 })
 
 -- Jump to context (nvim-treesitter-context)
 vim.keymap.set("n", "[c", function()
 	require("treesitter-context").go_to_context()
-end, { silent = true, noremap = true })
+end, { noremap = true, silent = true })
 
 -- Telescope Project
-vim.api.nvim_set_keymap(
+vim.keymap.set(
 	"n",
 	"<C-p>",
 	":lua require'telescope'.extensions.project.project{}<CR>",
@@ -159,30 +141,30 @@ vim.api.nvim_set_keymap(
 )
 
 -- -------------- Mode -------------- --
-vim.api.nvim_set_keymap("n", "<S-a>", "i", {
+vim.keymap.set("n", "<S-a>", "i", {
 	noremap = true,
 })
 
 -- -------------- Line -------------- --
 -- Add a new line below
-vim.api.nvim_set_keymap("n", "l", "o", {
+vim.keymap.set("n", "l", "o", {
 	noremap = true,
 })
 -- Add a new line above
-vim.api.nvim_set_keymap("n", "L", "O", {
+vim.keymap.set("n", "L", "O", {
 	noremap = true,
 })
 -- Move line down
-vim.api.nvim_set_keymap("n", "<A-e>", "<A-j>", {
+vim.keymap.set("n", "<A-e>", "<A-j>", {
 	noremap = false,
 })
 -- Move line up
-vim.api.nvim_set_keymap("n", "<A-i>", "<A-k>", {
+vim.keymap.set("n", "<A-i>", "<A-k>", {
 	noremap = false,
 })
 
 -- ------------- Action ------------- --
 -- Paste register to visual selection
-vim.api.nvim_set_keymap("x", "<leader>p", '"_dP', {
+vim.keymap.set("x", "<leader>p", '"_dP', {
 	noremap = true,
 })
