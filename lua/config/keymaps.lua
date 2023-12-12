@@ -11,16 +11,6 @@ vim.keymap.set({ "n", "v" }, "e", "j", {
 vim.keymap.set({ "n", "v" }, "i", "k", {
 	noremap = true,
 })
-vim.keymap.set({ "n", "v" }, "o", "l", {
-	noremap = true,
-})
-
-vim.keymap.set({ "n", "v" }, "<S-h>", "<S-n>", {
-	noremap = true,
-})
-vim.keymap.set({ "n", "v" }, "<S-l>", "<S-o>", {
-	noremap = true,
-})
 
 vim.keymap.set({ "n", "v" }, "{", "{zz", {
 	noremap = true,
@@ -36,21 +26,18 @@ vim.keymap.set({ "n", "v" }, "j", "nzz", {
 vim.keymap.set({ "n", "v" }, "J", "Nzz", {
 	noremap = true,
 })
-vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
-	noremap = true,
-})
 
 -- Window navigation
-vim.keymap.set("n", "<C-n>", "<C-h>", {
+vim.api.nvim_set_keymap("", "<C-n>", "<C-h>", {
 	noremap = false,
 })
-vim.keymap.set("n", "<C-e>", "<C-j>", {
+vim.api.nvim_set_keymap("", "<C-e>", "<C-j>", {
 	noremap = false,
 })
-vim.keymap.set("n", "<C-i>", "<C-k>", {
+vim.api.nvim_set_keymap("", "<C-i>", "<C-k>", {
 	noremap = false,
 })
-vim.keymap.set("n", "<C-o>", "<C-l>", {
+vim.api.nvim_set_keymap("", "<C-o>", "<C-l>", {
 	noremap = false,
 })
 
@@ -65,7 +52,7 @@ vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {
 -- Hop
 local hop = require("hop")
 -- local directions = require('hop.hint').HintDirection
-vim.keymap.set("", "fa", function()
+vim.keymap.set("", "F", function()
 	hop.hint_char1({
 		current_line_only = false,
 	})
@@ -73,20 +60,8 @@ end, {
 	remap = true,
 	silent = true,
 })
-vim.keymap.set("", "fl", function()
-	hop.hint_char1({
-		current_line_only = true,
-	})
-end, {
-	remap = true,
-	silent = true,
-})
-vim.keymap.set("", "ff", "f", {
-	noremap = true,
-	silent = true,
-})
 
-vim.keymap.set("", "ta", function()
+vim.keymap.set("", "T", function()
 	hop.hint_char1({
 		current_line_only = false,
 		hint_offset = -1,
@@ -95,21 +70,8 @@ end, {
 	remap = true,
 	silent = true,
 })
-vim.keymap.set("", "tl", function()
-	hop.hint_char1({
-		current_line_only = true,
-		hint_offset = -1,
-	})
-end, {
-	remap = true,
-	silent = true,
-})
-vim.keymap.set("", "tt", "t", {
-	noremap = true,
-	silent = true,
-})
 
-vim.keymap.set("", "fp", function()
+vim.keymap.set("", "<M-f>", function()
 	hop.hint_patterns({
 		current_line_only = false,
 	})
@@ -117,7 +79,7 @@ end, {
 	remap = true,
 	silent = true,
 })
-vim.keymap.set("", "tp", function()
+vim.keymap.set("", "<M-t>", function()
 	hop.hint_patterns({
 		current_line_only = false,
 		hint_offset = -1,
@@ -126,11 +88,6 @@ end, {
 	remap = true,
 	silent = true,
 })
-
--- Jump to context (nvim-treesitter-context)
-vim.keymap.set("n", "[c", function()
-	require("treesitter-context").go_to_context()
-end, { noremap = true, silent = true })
 
 -- Telescope Project
 vim.keymap.set(
@@ -147,24 +104,28 @@ vim.keymap.set("n", "<S-a>", "i", {
 
 -- -------------- Line -------------- --
 -- Add a new line below
-vim.keymap.set("n", "l", "o", {
+vim.keymap.set({ "n", "v" }, "l", "o", {
 	noremap = true,
 })
 -- Add a new line above
-vim.keymap.set("n", "L", "O", {
+vim.keymap.set({ "n", "v" }, "L", "O", {
 	noremap = true,
 })
 -- Move line down
-vim.keymap.set("n", "<A-e>", "<A-j>", {
-	noremap = false,
+vim.keymap.set({ "n", "v" }, "<A-e>", "<A-j>", {
+	noremap = true,
 })
 -- Move line up
-vim.keymap.set("n", "<A-i>", "<A-k>", {
-	noremap = false,
+vim.keymap.set({ "n", "v" }, "<A-i>", "<A-k>", {
+	noremap = true,
+})
+-- Join line
+vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
+	noremap = true,
 })
 
--- ------------- Action ------------- --
+-- ------------ Register ------------- --
 -- Paste register to visual selection
-vim.keymap.set("x", "<leader>p", '"_dP', {
+vim.keymap.set("v", "<leader>p", '"_dP', {
 	noremap = true,
 })
