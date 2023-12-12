@@ -14,8 +14,6 @@ require("lazy").setup({
 			import = "lazyvim.plugins",
 		},
 		{ "smoka7/hop.nvim" },
-		-- { "github/copilot.vim", lazy = false },
-		-- { import = "lazyvim.plugins.extras.formatting.prettier" },
 		{
 			"stevearc/conform.nvim",
 			opts = {
