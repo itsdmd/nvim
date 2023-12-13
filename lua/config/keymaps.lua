@@ -51,8 +51,8 @@ vim.keymap.set("", "<M-f>", function()
 		current_line_only = false,
 	})
 end, {
-	silent = true,
 	desc = "Hop pattern",
+	silent = true,
 })
 vim.keymap.set("", "<M-t>", function()
 	hop.hint_patterns({
@@ -60,22 +60,88 @@ vim.keymap.set("", "<M-t>", function()
 		hint_offset = -1,
 	})
 end, {
-	silent = true,
 	desc = "Hop pattern until",
+	silent = true,
 })
 
 -- Window navigation
-vim.keymap.set("", "<C-n>", "<C-h>", {
+vim.keymap.set("", "<C-n>", "<C-w>h", {
 	desc = "Focus left window",
 })
-vim.keymap.set("", "<C-e>", "<C-j>", {
+vim.keymap.set("", "<C-e>", "<C-w>j", {
 	desc = "Focus down window",
 })
-vim.keymap.set("", "<C-i>", "<C-k>", {
+vim.keymap.set("", "<C-i>", "<C-w>k", {
 	desc = "Focus up window",
 })
-vim.keymap.set("", "<C-o>", "<C-l>", {
+vim.keymap.set("", "<C-o>", "<C-w>l", {
 	desc = "Focus right window",
+})
+
+-- Buffer navigation
+vim.keymap.set("n", "<Tab><Tab>", "<C-6>", {
+	desc = "Focus previous buffer",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>o", ":BufferLineCycleNext<CR>", {
+	desc = "Focus next buffer",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>n", ":BufferLineCyclePrev<CR>", {
+	desc = "Focus prev buffer",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab><CR>", ":BufferLinePick<CR>", {
+	desc = "Select buffer to focus",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>1", ":BufferLineGoToBuffer 1<CR>", {
+	desc = "Focus buffer 1",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>2", ":BufferLineGoToBuffer 2<CR>", {
+	desc = "Focus buffer 2",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>3", ":BufferLineGoToBuffer 3<CR>", {
+	desc = "Focus buffer 3",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>4", ":BufferLineGoToBuffer 4<CR>", {
+	desc = "Focus buffer 4",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>5", ":BufferLineGoToBuffer 5<CR>", {
+	desc = "Focus buffer 5",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>6", ":BufferLineGoToBuffer 6<CR>", {
+	desc = "Focus buffer 6",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>7", ":BufferLineGoToBuffer 7<CR>", {
+	desc = "Focus buffer 7",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>8", ":BufferLineGoToBuffer 8<CR>", {
+	desc = "Focus buffer 8",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>9", ":BufferLineGoToBuffer 9<CR>", {
+	desc = "Focus buffer 9",
+	silent = true,
+})
+vim.keymap.set("n", "<Tab>0", ":BufferLineGoToBuffer 10<CR>", {
+	desc = "Focus buffer 10",
+	silent = true,
+})
+vim.keymap.set("n", "<leader><Tab>O", ":BufferLineMoveNext<CR>", {
+	desc = "Move buffer right",
+	silent = true,
+})
+vim.keymap.set("n", "<leader><Tab>N", ":BufferLineMovePrev<CR>", {
+	desc = "Move buffer left",
+	silent = true,
 })
 
 -- Harpoon
@@ -88,51 +154,51 @@ vim.keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", {
-	desc = "Harpoon go to next file",
+	desc = "Go to next file",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", {
-	desc = "Harpoon go to prev file",
+	desc = "Go to prev file",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", {
-	desc = "Harpoon go to file 1",
+	desc = "Go to file 1",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h2", ":lua require('harpoon.ui').nav_file(2)<CR>", {
-	desc = "Harpoon go to file 2",
+	desc = "Go to file 2",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", {
-	desc = "Harpoon go to file 3",
+	desc = "Go to file 3",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", {
-	desc = "Harpoon go to file 4",
+	desc = "Go to file 4",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h5", ":lua require('harpoon.ui').nav_file(5)<CR>", {
-	desc = "Harpoon go to file 5",
+	desc = "Go to file 5",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h6", ":lua require('harpoon.ui').nav_file(6)<CR>", {
-	desc = "Harpoon go to file 6",
+	desc = "Go to file 6",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h7", ":lua require('harpoon.ui').nav_file(7)<CR>", {
-	desc = "Harpoon go to file 7",
+	desc = "Go to file 7",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h8", ":lua require('harpoon.ui').nav_file(8)<CR>", {
-	desc = "Harpoon go to file 8",
+	desc = "Go to file 8",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h9", ":lua require('harpoon.ui').nav_file(9)<CR>", {
-	desc = "Harpoon go to file 9",
+	desc = "Go to file 9",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h0", ":lua require('harpoon.ui').nav_file(10)<CR>", {
-	desc = "Harpoon go to file 10",
+	desc = "Go to file 10",
 	silent = true,
 })
 
@@ -142,24 +208,15 @@ vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project
 	silent = true,
 })
 
--- ------------ Workspace ------------ --
--- Window resize
-vim.keymap.set("", "<C-I>", "<C-w>+", {
-	desc = "Increase window height",
-})
-vim.keymap.set("", "<C-E>", "<C-w>-", {
-	desc = "Decrease window height",
-})
-vim.keymap.set("", "<C-N>", "<C-w><", {
-	desc = "Decrease window width",
-})
-vim.keymap.set("", "<C-O>", "<C-w>>", {
-	desc = "Increase window width",
-})
-
 -- -------------- Mode -------------- --
 vim.keymap.set("n", "<S-a>", "i", {
 	desc = "Insert mode",
+})
+
+-- Visual Multi
+vim.keymap.set("n", "<leader>vm", ":VMSearch<CR>", {
+	desc = "VM Search",
+	silent = true,
 })
 
 -- -------------- Line -------------- --
