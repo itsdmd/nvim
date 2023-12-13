@@ -14,6 +14,7 @@ require("lazy").setup({
 			import = "lazyvim.plugins",
 		},
 		{ "smoka7/hop.nvim" },
+		{ "nvim-lua/plenary.nvim" },
 		{
 			"nvim-neo-tree/neo-tree.nvim",
 			dependencies = {
@@ -86,9 +87,15 @@ require("lazy").setup({
 			},
 		},
 		{ "ThePrimeagen/vim-be-good" },
+		{
+			"ThePrimeagen/harpoon",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+		},
 		{ "SmiteshP/nvim-navic" }, -- Current code context
 		{ "gbprod/yanky.nvim" },
-		{ "chrisgrieser/cmp_yanky" },
+		{ "tpope/vim-abolish" }, -- Word casing
 		{
 			import = "plugins",
 		},

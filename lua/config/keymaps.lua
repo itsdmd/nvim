@@ -13,30 +13,16 @@ vim.keymap.set({ "n", "v" }, "}", "}zz", {
 	desc = "Next paragraph",
 })
 
+-- Page up/down
+vim.keymap.set({ "n", "x" }, "<PageUp>", "<PageUp>zz", {})
+vim.keymap.set({ "n", "x" }, "<PageDown>", "<PageDown>zz", {})
+
 vim.keymap.set({ "n", "v" }, "j", "nzz", {
 	desc = "Next search result",
 })
 vim.keymap.set({ "n", "v" }, "J", "Nzz", {
 	desc = "Prev search result",
 })
-
--- Window navigation
-vim.keymap.set("", "<C-n>", "<C-h>", {
-	desc = "Focus left window",
-})
-vim.keymap.set("", "<C-e>", "<C-j>", {
-	desc = "Focus down window",
-})
-vim.keymap.set("", "<C-i>", "<C-k>", {
-	desc = "Focus up window",
-})
-vim.keymap.set("", "<C-o>", "<C-l>", {
-	desc = "Focus right window",
-})
-
--- Page up/down
-vim.keymap.set({ "n", "x" }, "<PageUp>", "<PageUp>zz", {})
-vim.keymap.set({ "n", "x" }, "<PageDown>", "<PageDown>zz", {})
 
 -- Hop
 local hop = require("hop")
@@ -78,10 +64,97 @@ end, {
 	desc = "Hop pattern until",
 })
 
+-- Window navigation
+vim.keymap.set("", "<C-n>", "<C-h>", {
+	desc = "Focus left window",
+})
+vim.keymap.set("", "<C-e>", "<C-j>", {
+	desc = "Focus down window",
+})
+vim.keymap.set("", "<C-i>", "<C-k>", {
+	desc = "Focus up window",
+})
+vim.keymap.set("", "<C-o>", "<C-l>", {
+	desc = "Focus right window",
+})
+
+-- Harpoon
+vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", {
+	desc = "Toggle harpoon menu",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", {
+	desc = "Add file to harpoon",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", {
+	desc = "Harpoon go to next file",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", {
+	desc = "Harpoon go to prev file",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", {
+	desc = "Harpoon go to file 1",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h2", ":lua require('harpoon.ui').nav_file(2)<CR>", {
+	desc = "Harpoon go to file 2",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", {
+	desc = "Harpoon go to file 3",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", {
+	desc = "Harpoon go to file 4",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h5", ":lua require('harpoon.ui').nav_file(5)<CR>", {
+	desc = "Harpoon go to file 5",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h6", ":lua require('harpoon.ui').nav_file(6)<CR>", {
+	desc = "Harpoon go to file 6",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h7", ":lua require('harpoon.ui').nav_file(7)<CR>", {
+	desc = "Harpoon go to file 7",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h8", ":lua require('harpoon.ui').nav_file(8)<CR>", {
+	desc = "Harpoon go to file 8",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h9", ":lua require('harpoon.ui').nav_file(9)<CR>", {
+	desc = "Harpoon go to file 9",
+	silent = true,
+})
+vim.keymap.set("n", "<leader>h0", ":lua require('harpoon.ui').nav_file(10)<CR>", {
+	desc = "Harpoon go to file 10",
+	silent = true,
+})
+
 -- Telescope Project
 vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project{}<CR>", {
 	desc = "Telescope Project",
 	silent = true,
+})
+
+-- ------------ Workspace ------------ --
+-- Window resize
+vim.keymap.set("", "<C-I>", "<C-w>+", {
+	desc = "Increase window height",
+})
+vim.keymap.set("", "<C-E>", "<C-w>-", {
+	desc = "Decrease window height",
+})
+vim.keymap.set("", "<C-N>", "<C-w><", {
+	desc = "Decrease window width",
+})
+vim.keymap.set("", "<C-O>", "<C-w>>", {
+	desc = "Increase window width",
 })
 
 -- -------------- Mode -------------- --
