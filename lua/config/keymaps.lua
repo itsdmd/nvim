@@ -3,50 +3,57 @@
 -- Add any additional keymaps here
 -- ----------- Navigation ----------- --
 vim.keymap.set({ "n", "v" }, "n", "h", {
-	noremap = true,
+	remap = false,
 })
 vim.keymap.set({ "n", "v" }, "e", "j", {
-	noremap = true,
+	remap = false,
 })
 vim.keymap.set({ "n", "v" }, "i", "k", {
-	noremap = true,
+	remap = false,
 })
 
 vim.keymap.set({ "n", "v" }, "{", "{zz", {
-	noremap = true,
+	remap = false,
+	desc = "Previous paragraph",
 })
 vim.keymap.set({ "n", "v" }, "}", "}zz", {
-	noremap = true,
+	remap = false,
+	desc = "Next paragraph",
 })
 
--- Next search result
 vim.keymap.set({ "n", "v" }, "j", "nzz", {
-	noremap = true,
+	remap = false,
+	desc = "Next search result",
 })
 vim.keymap.set({ "n", "v" }, "J", "Nzz", {
-	noremap = true,
+	remap = false,
+	desc = "Previous search result",
 })
 
 -- Window navigation
-vim.api.nvim_set_keymap("", "<C-n>", "<C-h>", {
-	noremap = false,
+vim.keymap.set("", "<C-n>", "<C-h>", {
+	remap = true,
+	desc = "Focus left window",
 })
-vim.api.nvim_set_keymap("", "<C-e>", "<C-j>", {
-	noremap = false,
+vim.keymap.set("", "<C-e>", "<C-j>", {
+	remap = true,
+	desc = "Focus down window",
 })
-vim.api.nvim_set_keymap("", "<C-i>", "<C-k>", {
-	noremap = false,
+vim.keymap.set("", "<C-i>", "<C-k>", {
+	remap = true,
+	desc = "Focus up window",
 })
-vim.api.nvim_set_keymap("", "<C-o>", "<C-l>", {
-	noremap = false,
+vim.keymap.set("", "<C-o>", "<C-l>", {
+	remap = true,
+	desc = "Focus right window",
 })
 
 -- Page up/down
-vim.keymap.set({ "n", "v" }, "<PageUp>", "<PageUp>zz", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "<PageUp>", "<PageUp>zz", {
+	remap = false,
 })
-vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "<PageDown>", "<PageDown>zz", {
+	remap = false,
 })
 
 -- Hop
@@ -57,8 +64,9 @@ vim.keymap.set("", "F", function()
 		current_line_only = false,
 	})
 end, {
-	remap = true,
+	remap = false,
 	silent = true,
+	desc = "Hop char",
 })
 
 vim.keymap.set("", "T", function()
@@ -67,8 +75,9 @@ vim.keymap.set("", "T", function()
 		hint_offset = -1,
 	})
 end, {
-	remap = true,
+	remap = false,
 	silent = true,
+	desc = "Hop char until",
 })
 
 vim.keymap.set("", "<M-f>", function()
@@ -76,8 +85,9 @@ vim.keymap.set("", "<M-f>", function()
 		current_line_only = false,
 	})
 end, {
-	remap = true,
+	remap = false,
 	silent = true,
+	desc = "Hop pattern",
 })
 vim.keymap.set("", "<M-t>", function()
 	hop.hint_patterns({
@@ -85,47 +95,86 @@ vim.keymap.set("", "<M-t>", function()
 		hint_offset = -1,
 	})
 end, {
-	remap = true,
+	remap = false,
 	silent = true,
+	desc = "Hop pattern until",
 })
 
 -- Telescope Project
-vim.keymap.set(
-	"n",
-	"<C-p>",
-	":lua require'telescope'.extensions.project.project{}<CR>",
-	{ noremap = true, silent = true }
-)
+vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project{}<CR>", {
+	remap = false,
+	silent = true,
+	desc = "Telescope Project",
+})
 
 -- -------------- Mode -------------- --
 vim.keymap.set("n", "<S-a>", "i", {
-	noremap = true,
+	remap = false,
+	desc = "Insert mode",
 })
 
 -- -------------- Line -------------- --
--- Add a new line below
-vim.keymap.set({ "n", "v" }, "l", "o", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "l", "o", {
+	remap = false,
+	desc = "Add a new line below",
 })
--- Add a new line above
-vim.keymap.set({ "n", "v" }, "L", "O", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "L", "O", {
+	remap = false,
+	desc = "Add a new line above",
 })
--- Move line down
-vim.keymap.set({ "n", "v" }, "<A-e>", "<A-j>", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "<M-e>", "<M-j>", {
+	remap = false,
+	desc = "Move line down",
 })
--- Move line up
-vim.keymap.set({ "n", "v" }, "<A-i>", "<A-k>", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "<M-i>", "<M-k>", {
+	remap = false,
+	desc = "Move line up",
 })
--- Join line
-vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
-	noremap = true,
+vim.keymap.set({ "n", "x" }, "<M-j>", "J", {
+	remap = false,
+	desc = "Join line",
 })
 
 -- ------------ Register ------------- --
--- Paste register to visual selection
 vim.keymap.set("v", "<leader>p", '"_dP', {
-	noremap = true,
+	remap = false,
+	desc = "Paste register to visual selection",
+})
+
+-- yanky
+vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {
+	remap = false,
+	desc = "Yanky put after",
+})
+vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", {
+	remap = false,
+	desc = "Yanky put before",
+})
+vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", {
+	remap = false,
+	desc = "Yanky gput after",
+})
+vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", {
+	remap = false,
+	desc = "Yanky gput before",
+})
+vim.keymap.set("n", "[p", "<Plug>(YankyPreviousEntry)", {
+	remap = false,
+	desc = "Yanky previous entry",
+})
+vim.keymap.set("n", "]p", "<Plug>(YankyNextEntry)", {
+	remap = false,
+	desc = "Yank next entry",
+})
+vim.keymap.set("n", ">p", "<Plug>(YankyPutIndentAfterLinewise)", {
+	remap = false,
+	desc = "Yanky put indent after linewise",
+})
+vim.keymap.set("n", "<p", "<Plug>(YankyPutIndentBeforeLinewise)", {
+	remap = false,
+	desc = "Yanky put indent before linewise",
+})
+vim.keymap.set({ "n", "x" }, "<leader>fp", ":lua require('telescope').extensions.yank_history.yank_history()<CR>", {
+	remap = false,
+	desc = "Yanky history",
 })

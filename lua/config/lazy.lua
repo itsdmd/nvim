@@ -15,6 +15,35 @@ require("lazy").setup({
 		},
 		{ "smoka7/hop.nvim" },
 		{
+			"nvim-neo-tree/neo-tree.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
+				"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+			},
+
+			opts = {
+				close_if_last_window = true,
+				popup_border_style = "rounded",
+				enable_git_status = true,
+				enable_diagnostics = true,
+				filesystem = {
+					filtered_items = {
+						visible = true,
+						show_hidden_count = true,
+						hide_dotfiles = false,
+						hide_gitignored = false,
+						hide_by_name = { ".git", ".DS_Store", "thumbs.db" },
+						never_show = {},
+					},
+					follow_current_file = {
+						enable = true,
+					},
+				},
+			},
+		},
+		{
 			"stevearc/conform.nvim",
 			opts = {
 				formatters_by_ft = {
@@ -57,6 +86,9 @@ require("lazy").setup({
 			},
 		},
 		{ "ThePrimeagen/vim-be-good" },
+		{ "SmiteshP/nvim-navic" }, -- Current code context
+		{ "gbprod/yanky.nvim" },
+		{ "chrisgrieser/cmp_yanky" },
 		{
 			import = "plugins",
 		},
@@ -71,7 +103,7 @@ require("lazy").setup({
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
 	install = {
-		colorscheme = { "tokyonight", "habamax" },
+		colorscheme = { "tokyonight" },
 	},
 	checker = {
 		enabled = true,
@@ -99,11 +131,74 @@ require("telescope").setup({
 				{ "/home/itsdmd/Documents/GitHub", max_depth = 1 },
 			},
 			hidden_files = true,
+			file_ignore_patterns = {
+				"node_modules",
+				".git",
+			},
 			order_by = "asc",
 		},
 	},
 })
 
+require("yanky").setup({
+	ring = {
+		history_length = 100,
+		storage = "shada",
+		sync_with_numbered_registers = true,
+		cancel_event = "update",
+		ignore_registers = { "_" },
+		update_register_on_cycle = false,
+	},
+	system_clipboard = {
+		sync_with_ring = true,
+	},
+})
+
 require("hop").setup({
 	multi_windows = true,
+})
+
+require("nvim-navic").setup({
+	icons = {
+		File = "󰈙 ",
+		Module = " ",
+		Namespace = "󰌗 ",
+		Package = " ",
+		Class = "󰌗 ",
+		Method = "󰆧 ",
+		Property = " ",
+		Field = " ",
+		Constructor = " ",
+		Enum = "󰕘",
+		Interface = "󰕘",
+		Function = "󰊕 ",
+		Variable = "󰆧 ",
+		Constant = "󰏿 ",
+		String = "󰀬 ",
+		Number = "󰎠 ",
+		Boolean = "◩ ",
+		Array = "󰅪 ",
+		Object = "󰅩 ",
+		Key = "󰌋 ",
+		Null = "󰟢 ",
+		EnumMember = " ",
+		Struct = "󰌗 ",
+		Event = " ",
+		Operator = "󰆕 ",
+		TypeParameter = "󰊄 ",
+	},
+	lsp = {
+		auto_attach = true,
+		preference = nil,
+	},
+	highlight = false,
+	separator = " > ",
+	depth_limit = 0,
+	depth_limit_indicator = "..",
+	safe_output = true,
+	lazy_update_context = false,
+	click = false,
+	format_text = function(text)
+		return text
+	end,
 })

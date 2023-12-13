@@ -9,3 +9,6 @@ vim.opt.shiftwidth = 4
 vim.opt.wrap = true
 
 vim.opt.conceallevel = 0
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
