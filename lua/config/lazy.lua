@@ -40,6 +40,7 @@ require("lazy").setup({
 					},
 					follow_current_file = {
 						enable = true,
+						leave_dirs_open = true,
 					},
 				},
 			},
@@ -116,6 +117,7 @@ require("lazy").setup({
 		{ "SmiteshP/nvim-navic" }, -- Current code context
 		{ "gbprod/yanky.nvim" },
 		{ "tpope/vim-abolish" }, -- Word casing
+
 		{
 			import = "plugins",
 		},

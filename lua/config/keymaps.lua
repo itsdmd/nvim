@@ -2,9 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- ----------- Navigation ----------- --
-vim.keymap.set({ "n", "v" }, "n", "h")
-vim.keymap.set({ "n", "v" }, "e", "j")
-vim.keymap.set({ "n", "v" }, "i", "k")
+vim.keymap.set({ "n", "v" }, "n", "hzz")
+vim.keymap.set({ "n", "v" }, "e", "jzz")
+vim.keymap.set({ "n", "v" }, "i", "kzz")
+vim.keymap.set({ "n", "v" }, "o", "lzz")
 
 vim.keymap.set({ "n", "v" }, "{", "{zz", {
 	desc = "Prev paragraph",
@@ -13,7 +14,6 @@ vim.keymap.set({ "n", "v" }, "}", "}zz", {
 	desc = "Next paragraph",
 })
 
--- Page up/down
 vim.keymap.set({ "n", "x" }, "<PageUp>", "<PageUp>zz", {})
 vim.keymap.set({ "n", "x" }, "<PageDown>", "<PageDown>zz", {})
 
@@ -66,29 +66,29 @@ end, {
 
 -- Window navigation
 vim.keymap.set("", "<C-n>", "<C-w>h", {
-	desc = "Focus left window",
+	desc = "Got to window left",
 })
 vim.keymap.set("", "<C-e>", "<C-w>j", {
-	desc = "Focus down window",
+	desc = "Go to window down",
 })
 vim.keymap.set("", "<C-i>", "<C-w>k", {
-	desc = "Focus up window",
+	desc = "Go to window up",
 })
 vim.keymap.set("", "<C-o>", "<C-w>l", {
-	desc = "Focus right window",
+	desc = "Go to window right",
 })
 
 -- Buffer navigation
 vim.keymap.set("n", "<Tab><Tab>", "<C-6>", {
-	desc = "Focus previous buffer",
+	desc = "Go to previous buffer",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>o", ":BufferLineCycleNext<CR>", {
-	desc = "Focus next buffer",
+	desc = "Go to next buffer",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>n", ":BufferLineCyclePrev<CR>", {
-	desc = "Focus prev buffer",
+	desc = "Go to prev buffer",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab><CR>", ":BufferLinePick<CR>", {
@@ -96,43 +96,43 @@ vim.keymap.set("n", "<Tab><CR>", ":BufferLinePick<CR>", {
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>1", ":BufferLineGoToBuffer 1<CR>", {
-	desc = "Focus buffer 1",
+	desc = "Go to buffer 1",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>2", ":BufferLineGoToBuffer 2<CR>", {
-	desc = "Focus buffer 2",
+	desc = "Go to buffer 2",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>3", ":BufferLineGoToBuffer 3<CR>", {
-	desc = "Focus buffer 3",
+	desc = "Go to buffer 3",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>4", ":BufferLineGoToBuffer 4<CR>", {
-	desc = "Focus buffer 4",
+	desc = "Go to buffer 4",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>5", ":BufferLineGoToBuffer 5<CR>", {
-	desc = "Focus buffer 5",
+	desc = "Go to buffer 5",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>6", ":BufferLineGoToBuffer 6<CR>", {
-	desc = "Focus buffer 6",
+	desc = "Go to buffer 6",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>7", ":BufferLineGoToBuffer 7<CR>", {
-	desc = "Focus buffer 7",
+	desc = "Go to buffer 7",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>8", ":BufferLineGoToBuffer 8<CR>", {
-	desc = "Focus buffer 8",
+	desc = "Go to buffer 8",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>9", ":BufferLineGoToBuffer 9<CR>", {
-	desc = "Focus buffer 9",
+	desc = "Go to buffer 9",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>0", ":BufferLineGoToBuffer 10<CR>", {
-	desc = "Focus buffer 10",
+	desc = "Go to buffer 10",
 	silent = true,
 })
 vim.keymap.set("n", "<leader><Tab>O", ":BufferLineMoveNext<CR>", {
