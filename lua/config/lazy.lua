@@ -8,11 +8,14 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-	spec = { -- add LazyVim and import its plugins
+	spec = {
+		-- add LazyVim and import its plugins
 		{
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 		},
+
+		-- motion/navigation
 		{ "smoka7/hop.nvim" },
 		{ "nvim-lua/plenary.nvim" },
 		{
@@ -46,6 +49,22 @@ require("lazy").setup({
 			},
 		},
 		{
+			"ThePrimeagen/harpoon",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+		},
+		{
+			"jakewvincent/mkdnflow.nvim", -- improve markdown links behavior
+			config = function()
+				require("mkdnflow").setup({
+					-- Config goes here; leave blank for defaults
+				})
+			end,
+		},
+
+		-- beautify
+		{
 			"stevearc/conform.nvim",
 			opts = {
 				formatters_by_ft = {
@@ -68,14 +87,20 @@ require("lazy").setup({
 				},
 			},
 		},
-		{
-			"jakewvincent/mkdnflow.nvim",
-			config = function()
-				require("mkdnflow").setup({
-					-- Config goes here; leave blank for defaults
-				})
-			end,
-		},
+
+		-- editor
+		{ "fangjunzhou/comment-divider.nvim" },
+		{ "gbprod/yanky.nvim" }, -- yank register manager
+		{ "hiphish/rainbow-delimiters.nvim" }, -- rainbow parentheses
+		{ "jparise/vim-graphql" },
+		{ "mg979/vim-visual-multi" },
+		{ "nvim-treesitter/nvim-treesitter-context" },
+		{ "tomtom/tcomment_vim" },
+		{ "tpope/vim-abolish" }, -- Word casing
+		{ "tpope/vim-surround" },
+		{ "SmiteshP/nvim-navic" }, -- Current code context
+
+		-- utilities
 		{
 			"iamcco/markdown-preview.nvim",
 			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -88,19 +113,14 @@ require("lazy").setup({
 			"Zeioth/markmap.nvim",
 			cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
 			opts = {
-				html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
-				hide_toolbar = false, -- (default)
-				grace_period = 0, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
+				html_output = "./markmap.html", -- Setting a empty string "" here means: [Current buffer path].html
+				hide_toolbar = false,
+				grace_period = 0, -- Stops markmap watch after 60 minutes.
 			},
 			config = function(_, opts)
 				require("markmap").setup(opts)
 			end,
 		},
-		{ "jparise/vim-graphql" },
-		{ "tpope/vim-surround" },
-		{ "tomtom/tcomment_vim" },
-		{ "mg979/vim-visual-multi" },
-		{ "nvim-treesitter/nvim-treesitter-context" },
 		{
 			"nvim-telescope/telescope-project.nvim",
 			opt = {
@@ -108,15 +128,6 @@ require("lazy").setup({
 			},
 		},
 		{ "ThePrimeagen/vim-be-good" },
-		{
-			"ThePrimeagen/harpoon",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-			},
-		},
-		{ "SmiteshP/nvim-navic" }, -- Current code context
-		{ "gbprod/yanky.nvim" },
-		{ "tpope/vim-abolish" }, -- Word casing
 
 		{
 			import = "plugins",

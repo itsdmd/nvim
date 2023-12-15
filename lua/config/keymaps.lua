@@ -14,8 +14,8 @@ vim.keymap.set({ "n", "v" }, "}", "}zz", {
 	desc = "Next paragraph",
 })
 
-vim.keymap.set({ "n", "x" }, "<PageUp>", "<PageUp>zz", {})
-vim.keymap.set({ "n", "x" }, "<PageDown>", "<PageDown>zz", {})
+vim.keymap.set({ "n", "v" }, "<PageUp>", "<PageUp>zz", {})
+vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {})
 
 vim.keymap.set({ "n", "v" }, "j", "nzz", {
 	desc = "Next search result",
@@ -220,22 +220,30 @@ vim.keymap.set("n", "<leader>vm", ":VMSearch<CR>", {
 })
 
 -- -------------- Line -------------- --
-vim.keymap.set({ "n", "x" }, "l", "o", {
+vim.keymap.set({ "n", "v" }, "l", "o", {
 	desc = "Add a new line below",
 })
-vim.keymap.set({ "n", "x" }, "L", "O", {
+vim.keymap.set({ "n", "v" }, "L", "O", {
 	desc = "Add a new line above",
 })
-vim.keymap.set({ "n", "x" }, "<M-e>", ":m+<CR>", {
+vim.keymap.set({ "n", "v" }, "<M-e>", ":m+<CR>", {
 	desc = "Move line down",
 	silent = true,
 })
-vim.keymap.set({ "n", "x" }, "<M-i>", ":m-2<CR>", {
+vim.keymap.set({ "n", "v" }, "<M-i>", ":m-2<CR>", {
 	desc = "Move line up",
 	silent = true,
 })
-vim.keymap.set({ "n", "x" }, "<M-j>", "J", {
+vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
 	desc = "Join line",
+})
+vim.keymap.set("n", "<M-x>", ":CommentDividerLine<CR>", {
+	desc = "Comment divider line",
+	silent = true,
+})
+vim.keymap.set("n", "<M-X>", ":CommentDividerBox<CR>", {
+	desc = "Comment divider box",
+	silent = true,
 })
 
 -- ------------ Register ------------- --
@@ -244,16 +252,16 @@ vim.keymap.set("v", "<leader>p", '"_dP', {
 })
 
 -- yanky
-vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {
+vim.keymap.set({ "n", "v" }, "p", "<Plug>(YankyPutAfter)", {
 	desc = "Yanky put after",
 })
-vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", {
+vim.keymap.set({ "n", "v" }, "P", "<Plug>(YankyPutBefore)", {
 	desc = "Yanky put before",
 })
-vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", {
+vim.keymap.set({ "n", "v" }, "gp", "<Plug>(YankyGPutAfter)", {
 	desc = "Yanky gput after",
 })
-vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", {
+vim.keymap.set({ "n", "v" }, "gP", "<Plug>(YankyGPutBefore)", {
 	desc = "Yanky gput before",
 })
 vim.keymap.set("n", "[p", "<Plug>(YankyPreviousEntry)", {
@@ -268,6 +276,6 @@ vim.keymap.set("n", ">p", "<Plug>(YankyPutIndentAfterLinewise)", {
 vim.keymap.set("n", "<p", "<Plug>(YankyPutIndentBeforeLinewise)", {
 	desc = "Yanky put indent before linewise",
 })
-vim.keymap.set({ "n", "x" }, "<leader>fp", ":lua require('telescope').extensions.yank_history.yank_history()<CR>", {
+vim.keymap.set({ "n", "v" }, "<leader>fp", ":lua require('telescope').extensions.yank_history.yank_history()<CR>", {
 	desc = "Yanky history",
 })
