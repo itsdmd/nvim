@@ -90,7 +90,6 @@ require("lazy").setup({
 
 		-- editor
 		{ "fangjunzhou/comment-divider.nvim" },
-		{ "gbprod/yanky.nvim" }, -- yank register manager
 		{ "hiphish/rainbow-delimiters.nvim" }, -- rainbow parentheses
 		{ "jparise/vim-graphql" },
 		{ "mg979/vim-visual-multi" },
@@ -98,7 +97,6 @@ require("lazy").setup({
 		{ "tomtom/tcomment_vim" },
 		{ "tpope/vim-abolish" }, -- Word casing
 		{ "tpope/vim-surround" },
-		{ "SmiteshP/nvim-navic" }, -- Current code context
 
 		-- utilities
 		{
