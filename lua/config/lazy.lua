@@ -87,6 +87,9 @@ require("lazy").setup({
 				},
 			},
 		},
+		{
+			"fatih/vim-go",
+		},
 
 		-- editor
 		{ "fangjunzhou/comment-divider.nvim" },
@@ -124,6 +127,12 @@ require("lazy").setup({
 			opt = {
 				display_type = "full",
 			},
+		},
+		{
+			"smjonas/inc-rename.nvim",
+			config = function()
+				require("inc_rename").setup()
+			end,
 		},
 		{ "ThePrimeagen/vim-be-good" },
 

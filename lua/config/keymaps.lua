@@ -100,35 +100,27 @@ vim.keymap.set("n", "<Tab>1", ":BufferLineGoToBuffer 1<CR>", {
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>2", ":BufferLineGoToBuffer 2<CR>", {
-	desc = "Go to buffer 2",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>3", ":BufferLineGoToBuffer 3<CR>", {
-	desc = "Go to buffer 3",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>4", ":BufferLineGoToBuffer 4<CR>", {
-	desc = "Go to buffer 4",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>5", ":BufferLineGoToBuffer 5<CR>", {
-	desc = "Go to buffer 5",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>6", ":BufferLineGoToBuffer 6<CR>", {
-	desc = "Go to buffer 6",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>7", ":BufferLineGoToBuffer 7<CR>", {
-	desc = "Go to buffer 7",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>8", ":BufferLineGoToBuffer 8<CR>", {
-	desc = "Go to buffer 8",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>9", ":BufferLineGoToBuffer 9<CR>", {
-	desc = "Go to buffer 9",
 	silent = true,
 })
 vim.keymap.set("n", "<Tab>0", ":BufferLineGoToBuffer 10<CR>", {
@@ -166,35 +158,27 @@ vim.keymap.set("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", 
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h2", ":lua require('harpoon.ui').nav_file(2)<CR>", {
-	desc = "Go to file 2",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", {
-	desc = "Go to file 3",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", {
-	desc = "Go to file 4",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h5", ":lua require('harpoon.ui').nav_file(5)<CR>", {
-	desc = "Go to file 5",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h6", ":lua require('harpoon.ui').nav_file(6)<CR>", {
-	desc = "Go to file 6",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h7", ":lua require('harpoon.ui').nav_file(7)<CR>", {
-	desc = "Go to file 7",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h8", ":lua require('harpoon.ui').nav_file(8)<CR>", {
-	desc = "Go to file 8",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h9", ":lua require('harpoon.ui').nav_file(9)<CR>", {
-	desc = "Go to file 9",
 	silent = true,
 })
 vim.keymap.set("n", "<leader>h0", ":lua require('harpoon.ui').nav_file(10)<CR>", {
@@ -218,6 +202,11 @@ vim.keymap.set("n", "<leader>vm", ":VMSearch<CR>", {
 	desc = "VM Search",
 	silent = true,
 })
+
+-- IncRename
+vim.keymap.set("n", "<leader>rn", function()
+	return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, desc = "IncRename" })
 
 -- -------------- Line -------------- --
 vim.keymap.set({ "n", "v" }, "l", "o", {
