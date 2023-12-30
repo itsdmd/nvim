@@ -82,7 +82,7 @@ ins_left({
 	function()
 		return "▊"
 	end,
-	color = { fg = colors.blue }, -- Sets highlighting of component
+	color = { fg = colors.cyan }, -- Sets highlighting of component
 	padding = { left = 0, right = 1 }, -- We don't need space before this
 })
 
@@ -129,25 +129,16 @@ ins_left({
 ins_left({
 	"filename",
 	cond = conditions.buffer_not_empty,
-	color = { fg = colors.magenta, gui = "bold" },
+	color = { fg = colors.cyan, gui = "bold" },
 })
 
 ins_left({
-	"branch",
-	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
-})
-
-ins_left({
-	"diff",
-	-- Is it me or the symbol for modified us really weird
-	symbols = { added = " ", modified = "󱗜 ", removed = " " },
-	diff_color = {
-		added = { fg = colors.green },
-		modified = { fg = colors.orange },
-		removed = { fg = colors.red },
-	},
-	cond = conditions.hide_in_width,
+	function()
+		return require("nvim-navic").get_location()
+	end,
+	cond = function()
+		return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+	end,
 })
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -156,6 +147,17 @@ ins_left({
 	function()
 		return "%="
 	end,
+})
+
+ins_left({
+	"diagnostics",
+	sources = { "nvim_diagnostic" },
+	symbols = { error = " ", warn = " ", info = " " },
+	diagnostics_color = {
+		color_error = { fg = colors.red },
+		color_warn = { fg = colors.yellow },
+		color_info = { fg = colors.cyan },
+	},
 })
 
 -- ins_left({
@@ -179,15 +181,6 @@ ins_left({
 -- 	color = { fg = "#ffffff", gui = "bold" },
 -- })
 
-ins_left({
-	function()
-		return require("nvim-navic").get_location()
-	end,
-	cond = function()
-		return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-	end,
-})
-
 -- ---------------------------------------------------------- --
 --              Add components to right sections              --
 -- ---------------------------------------------------------- --
@@ -207,17 +200,24 @@ ins_left({
 -- })
 
 ins_right({
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	symbols = { error = " ", warn = " ", info = " " },
-	diagnostics_color = {
-		color_error = { fg = colors.red },
-		color_warn = { fg = colors.yellow },
-		color_info = { fg = colors.cyan },
-	},
+	"branch",
+	icon = "",
+	color = { fg = colors.violet, gui = "bold" },
 })
 
-ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
+-- ins_right({
+-- 	"diff",
+-- 	-- Is it me or the symbol for modified us really weird
+-- 	symbols = { added = " ", modified = "󱗜 ", removed = " " },
+-- 	diff_color = {
+-- 		added = { fg = colors.green },
+-- 		modified = { fg = colors.orange },
+-- 		removed = { fg = colors.red },
+-- 	},
+-- 	cond = conditions.hide_in_width,
+-- })
+
+-- ins_right({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
 ins_right({ "location" })
 
@@ -225,7 +225,7 @@ ins_right({
 	function()
 		return "▊"
 	end,
-	color = { fg = colors.blue },
+	color = { fg = colors.cyan },
 	padding = { left = 1 },
 })
 
