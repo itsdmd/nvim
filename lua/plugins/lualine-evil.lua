@@ -179,6 +179,15 @@ ins_left({
 -- 	color = { fg = "#ffffff", gui = "bold" },
 -- })
 
+ins_left({
+	function()
+		return require("nvim-navic").get_location()
+	end,
+	cond = function()
+		return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+	end,
+})
+
 -- ---------------------------------------------------------- --
 --              Add components to right sections              --
 -- ---------------------------------------------------------- --
