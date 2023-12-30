@@ -87,9 +87,7 @@ require("lazy").setup({
 				},
 			},
 		},
-		{
-			"fatih/vim-go",
-		},
+		{ "fatih/vim-go" },
 
 		-- editor
 		{ "fangjunzhou/comment-divider.nvim" },
