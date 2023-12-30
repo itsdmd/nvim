@@ -3,7 +3,10 @@ return {
 	cmd = "Copilot",
 	build = ":Copilot auth",
 	opts = {
-		suggestion = { enabled = true },
+		suggestion = {
+			enabled = true,
+			keymap = {},
+		},
 		panel = { enabled = false },
 		filetypes = {
 			markdown = false,
