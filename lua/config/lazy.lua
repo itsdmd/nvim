@@ -147,9 +147,6 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = {
-		colorscheme = { "tokyonight" },
-	},
 	checker = {
 		enabled = true,
 	}, -- automatically check for plugin updates
@@ -167,83 +164,4 @@ require("lazy").setup({
 			},
 		},
 	},
-})
-
-require("telescope").setup({
-	extensions = {
-		project = {
-			base_dirs = {
-				{ "/home/itsdmd/Documents/GitHub", max_depth = 1 },
-			},
-			hidden_files = true,
-			file_ignore_patterns = {
-				"node_modules",
-				".git",
-			},
-			order_by = "asc",
-		},
-	},
-})
-
-require("yanky").setup({
-	ring = {
-		history_length = 100,
-		storage = "shada",
-		sync_with_numbered_registers = true,
-		cancel_event = "update",
-		ignore_registers = { "_" },
-		update_register_on_cycle = false,
-	},
-	system_clipboard = {
-		sync_with_ring = true,
-	},
-})
-
-require("hop").setup({
-	multi_windows = true,
-})
-
-require("nvim-navic").setup({
-	icons = {
-		File = "󰈙 ",
-		Module = " ",
-		Namespace = "󰌗 ",
-		Package = " ",
-		Class = "󰌗 ",
-		Method = "󰆧 ",
-		Property = " ",
-		Field = " ",
-		Constructor = " ",
-		Enum = "󰕘",
-		Interface = "󰕘",
-		Function = "󰊕 ",
-		Variable = "󰆧 ",
-		Constant = "󰏿 ",
-		String = "󰀬 ",
-		Number = "󰎠 ",
-		Boolean = "◩ ",
-		Array = "󰅪 ",
-		Object = "󰅩 ",
-		Key = "󰌋 ",
-		Null = "󰟢 ",
-		EnumMember = " ",
-		Struct = "󰌗 ",
-		Event = " ",
-		Operator = "󰆕 ",
-		TypeParameter = "󰊄 ",
-	},
-	lsp = {
-		auto_attach = true,
-		preference = nil,
-	},
-	highlight = false,
-	separator = " > ",
-	depth_limit = 0,
-	depth_limit_indicator = "..",
-	safe_output = true,
-	lazy_update_context = false,
-	click = false,
-	format_text = function(text)
-		return text
-	end,
 })
