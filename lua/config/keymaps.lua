@@ -24,47 +24,7 @@ vim.keymap.set({ "n", "v" }, "J", "Nzz", {
 	desc = "Prev search result",
 })
 
--- Hop
-local hop = require("hop")
--- local directions = require('hop.hint').HintDirection
-vim.keymap.set("", "F", function()
-	hop.hint_char1({
-		current_line_only = false,
-	})
-end, {
-	silent = true,
-	desc = "Hop char",
-})
-
-vim.keymap.set("", "T", function()
-	hop.hint_char1({
-		current_line_only = false,
-		hint_offset = -1,
-	})
-end, {
-	silent = true,
-	desc = "Hop char until",
-})
-
-vim.keymap.set("", "<M-f>", function()
-	hop.hint_patterns({
-		current_line_only = false,
-	})
-end, {
-	desc = "Hop pattern",
-	silent = true,
-})
-vim.keymap.set("", "<M-t>", function()
-	hop.hint_patterns({
-		current_line_only = false,
-		hint_offset = -1,
-	})
-end, {
-	desc = "Hop pattern until",
-	silent = true,
-})
-
--- Window navigation
+-- -- Window navigation
 vim.keymap.set("", "<C-n>", "<C-w>h", {
 	desc = "Got to window left",
 })
@@ -91,104 +51,88 @@ vim.keymap.set("n", "<Tab>n", ":BufferLineCyclePrev<CR>", {
 	desc = "Go to prev buffer",
 	silent = true,
 })
-vim.keymap.set("n", "<Tab><CR>", ":BufferLinePick<CR>", {
-	desc = "Select buffer to focus",
+vim.keymap.set("n", "<Tab>f", ":BufferLineGoToBuffer 1<CR>", {
+	desc = "Go to first buffer",
 	silent = true,
 })
-vim.keymap.set("n", "<Tab>1", ":BufferLineGoToBuffer 1<CR>", {
-	desc = "Go to buffer 1",
+vim.keymap.set("n", "<Tab>l", ":BufferLineGoToBuffer -1<CR>", {
+	desc = "Go to last buffer",
 	silent = true,
 })
-vim.keymap.set("n", "<Tab>2", ":BufferLineGoToBuffer 2<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>3", ":BufferLineGoToBuffer 3<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>4", ":BufferLineGoToBuffer 4<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>5", ":BufferLineGoToBuffer 5<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>6", ":BufferLineGoToBuffer 6<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>7", ":BufferLineGoToBuffer 7<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>8", ":BufferLineGoToBuffer 8<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>9", ":BufferLineGoToBuffer 9<CR>", {
-	silent = true,
-})
-vim.keymap.set("n", "<Tab>0", ":BufferLineGoToBuffer 10<CR>", {
-	desc = "Go to buffer 10",
-	silent = true,
-})
-vim.keymap.set("n", "<leader><Tab>O", ":BufferLineMoveNext<CR>", {
-	desc = "Move buffer right",
-	silent = true,
-})
-vim.keymap.set("n", "<leader><Tab>N", ":BufferLineMovePrev<CR>", {
+vim.keymap.set("n", "<Tab>e", ":BufferLineMovePrev<CR>", {
 	desc = "Move buffer left",
 	silent = true,
 })
-
--- Harpoon
-vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", {
-	desc = "Toggle harpoon menu",
+vim.keymap.set("n", "<Tab>i", ":BufferLineMoveNext<CR>", {
+	desc = "Move buffer right",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", {
-	desc = "Add file to harpoon",
+vim.keymap.set("n", "d<Tab>n", ":BufferLineCloseLeft<CR>", {
+	desc = "Close left buffers",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", {
-	desc = "Go to next file",
+vim.keymap.set("n", "d<Tab>o", ":BufferLineCloseRight<CR>", {
+	desc = "Close right buffers",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", {
-	desc = "Go to prev file",
+vim.keymap.set("n", "d<Tab>o", ":BufferLineCloseOthers<CR>", {
+	desc = "Close other buffers",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", {
-	desc = "Go to file 1",
+vim.keymap.set("n", "<Tab>g", ":BufferLineGroupToggle ", {
+	desc = "Toggle buffer group",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h2", ":lua require('harpoon.ui').nav_file(2)<CR>", {
+vim.keymap.set("n", "d<Tab>g", ":BufferLineGroupClose ", {
+	desc = "Close buffer group",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", {
+vim.keymap.set("n", "<Tab><Space>", ":BufferLinePick<CR>", {
+	desc = "Select buffer to focus",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", {
+vim.keymap.set("n", "g<Tab>1", ":BufferLineGoToBuffer 1<CR>", {
+	desc = "Go to buffer 1 (alt: <Tab>f)",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h5", ":lua require('harpoon.ui').nav_file(5)<CR>", {
+vim.keymap.set("n", "g<Tab>2", ":BufferLineGoToBuffer 2<CR>", {
+	desc = "",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h6", ":lua require('harpoon.ui').nav_file(6)<CR>", {
+vim.keymap.set("n", "g<Tab>3", ":BufferLineGoToBuffer 3<CR>", {
+	desc = "",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h7", ":lua require('harpoon.ui').nav_file(7)<CR>", {
+vim.keymap.set("n", "g<Tab>4", ":BufferLineGoToBuffer 4<CR>", {
+	desc = "",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h8", ":lua require('harpoon.ui').nav_file(8)<CR>", {
+vim.keymap.set("n", "g<Tab>5", ":BufferLineGoToBuffer 5<CR>", {
+	desc = "",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h9", ":lua require('harpoon.ui').nav_file(9)<CR>", {
+vim.keymap.set("n", "g<Tab>6", ":BufferLineGoToBuffer 6<CR>", {
+	desc = "",
 	silent = true,
 })
-vim.keymap.set("n", "<leader>h0", ":lua require('harpoon.ui').nav_file(10)<CR>", {
-	desc = "Go to file 10",
+vim.keymap.set("n", "g<Tab>7", ":BufferLineGoToBuffer 7<CR>", {
+	desc = "",
 	silent = true,
 })
-
--- Telescope Project
-vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project{}<CR>", {
-	desc = "Telescope Project",
+vim.keymap.set("n", "g<Tab>8", ":BufferLineGoToBuffer 8<CR>", {
+	desc = "",
+	silent = true,
+})
+vim.keymap.set("n", "g<Tab>9", ":BufferLineGoToBuffer 9<CR>", {
+	desc = "",
+	silent = true,
+})
+vim.keymap.set("n", "g<Tab>0", ":BufferLineGoToBuffer 10<CR>", {
+	desc = "Go to buffer 10",
+	silent = true,
+})
+vim.keymap.set("n", "g<Tab>-", ":BufferLineGoToBuffer -1<CR>", {
+	desc = "Go to last buffer (alt: <Tab>l)",
 	silent = true,
 })
 
@@ -241,6 +185,9 @@ vim.keymap.set("v", "<leader>p", '"_dP', {
 })
 
 -- yanky
+vim.keymap.set({ "n", "v" }, "<leader>fp", ":lua require('telescope').extensions.yank_history.yank_history()<CR>", {
+	desc = "Yanky history",
+})
 vim.keymap.set({ "n", "v" }, "p", "<Plug>(YankyPutAfter)", {
 	desc = "Yanky put after",
 })
@@ -264,7 +211,4 @@ vim.keymap.set("n", ">p", "<Plug>(YankyPutIndentAfterLinewise)", {
 })
 vim.keymap.set("n", "<p", "<Plug>(YankyPutIndentBeforeLinewise)", {
 	desc = "Yanky put indent before linewise",
-})
-vim.keymap.set({ "n", "v" }, "<leader>fp", ":lua require('telescope').extensions.yank_history.yank_history()<CR>", {
-	desc = "Yanky history",
 })

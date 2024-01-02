@@ -15,4 +15,11 @@ return {
 			},
 		},
 	},
+
+	config = function()
+		vim.keymap.set("n", "<C-p>", ":lua require'telescope'.extensions.project.project{}<CR>", {
+			desc = "Telescope Project",
+			silent = true,
+		})
+	end,
 }

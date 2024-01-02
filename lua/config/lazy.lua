@@ -91,6 +91,7 @@ require("lazy").setup({
 
 		-- editor
 		{ "fangjunzhou/comment-divider.nvim" },
+		{ "gaoDean/autolist.nvim" },
 		{ "hiphish/rainbow-delimiters.nvim" }, -- rainbow parentheses
 		{ "jparise/vim-graphql" },
 		{ "mg979/vim-visual-multi" },
