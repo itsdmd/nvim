@@ -43,6 +43,10 @@ vim.keymap.set("n", "<Tab><Tab>", "<C-6>", {
 	desc = "Go to previous buffer",
 	silent = true,
 })
+vim.keymap.set("n", "<Tab>w", ":BufferLinePick<CR>", {
+	desc = "Pick buffer to jump to",
+	silent = true,
+})
 vim.keymap.set("n", "<Tab>o", ":BufferLineCycleNext<CR>", {
 	desc = "Go to next buffer",
 	silent = true,
@@ -67,6 +71,10 @@ vim.keymap.set("n", "<Tab>i", ":BufferLineMoveNext<CR>", {
 	desc = "Move buffer right",
 	silent = true,
 })
+vim.keymap.set("n", "d<Tab>w", ":BufferLinePickClose<CR>", {
+	desc = "Pick buffer to close",
+	silent = true,
+})
 vim.keymap.set("n", "d<Tab>n", ":BufferLineCloseLeft<CR>", {
 	desc = "Close left buffers",
 	silent = true,
@@ -75,7 +83,7 @@ vim.keymap.set("n", "d<Tab>o", ":BufferLineCloseRight<CR>", {
 	desc = "Close right buffers",
 	silent = true,
 })
-vim.keymap.set("n", "d<Tab>o", ":BufferLineCloseOthers<CR>", {
+vim.keymap.set("n", "d<Tab>x", ":BufferLineCloseOthers<CR>", {
 	desc = "Close other buffers",
 	silent = true,
 })

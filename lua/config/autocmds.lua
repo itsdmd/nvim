@@ -5,9 +5,9 @@
 -- Change shiftwidth to 2 for yaml, markdown
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = {
+		"*.md",
 		"*.yaml",
 		"*.yml",
-		"*.md",
 	},
 	command = "setlocal shiftwidth=2",
 })

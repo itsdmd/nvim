@@ -26,27 +26,6 @@ require("lazy").setup({
 				"MunifTanjim/nui.nvim",
 				"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 			},
-
-			opts = {
-				close_if_last_window = true,
-				popup_border_style = "rounded",
-				enable_git_status = true,
-				enable_diagnostics = true,
-				filesystem = {
-					filtered_items = {
-						visible = true,
-						show_hidden_count = true,
-						hide_dotfiles = false,
-						hide_gitignored = false,
-						hide_by_name = { ".git", ".DS_Store", "thumbs.db" },
-						never_show = {},
-					},
-					follow_current_file = {
-						enable = true,
-						leave_dirs_open = true,
-					},
-				},
-			},
 		},
 		{
 			"ThePrimeagen/harpoon",
@@ -64,29 +43,7 @@ require("lazy").setup({
 		},
 
 		-- beautify
-		{
-			"stevearc/conform.nvim",
-			opts = {
-				formatters_by_ft = {
-					["css"] = { "prettier" },
-					["graphql"] = { "prettier" },
-					["handlebars"] = { "prettier" },
-					["html"] = { "prettier" },
-					["javascript"] = { "prettier" },
-					["javascriptreact"] = { "prettier" },
-					["jsonc"] = { "prettier" },
-					["json"] = { "prettier" },
-					["less"] = { "prettier" },
-					["markdown.mdx"] = { "prettier" },
-					["markdown"] = { "prettier" },
-					["scss"] = { "prettier" },
-					["typescript"] = { "prettier" },
-					["typescriptreact"] = { "prettier" },
-					["vue"] = { "prettier" },
-					["yaml"] = { "prettier" },
-				},
-			},
-		},
+		{ "stevearc/conform.nvim" },
 		{ "fatih/vim-go" },
 
 		-- editor

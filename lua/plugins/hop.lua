@@ -1,8 +1,8 @@
 return {
 	"phaazon/hop.nvim",
 	opts = {
-		keys = "ntesiroalpufywkvbmcxzq",
-		case_insensitive = true,
+		keys = "neiotsrahdluy;pfwqkmvcxzbjg",
+		case_insensitive = false,
 		multi_windows = true,
 	},
 
