@@ -11,3 +11,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	},
 	command = "setlocal shiftwidth=2",
 })
+
+-- Disable spell checking
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
