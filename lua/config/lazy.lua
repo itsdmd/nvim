@@ -84,6 +84,7 @@ require("lazy").setup({
 		{ "tomtom/tcomment_vim" },
 		{ "tpope/vim-abolish" }, -- Word casing
 		{ "tpope/vim-surround" },
+		{ "windwp/nvim-ts-autotag" },
 
 		-- utilities
 		{
