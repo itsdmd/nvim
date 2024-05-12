@@ -27,6 +27,7 @@ require("lazy").setup({
 				"MunifTanjim/nui.nvim",
 				"neovim/nvim-lspconfig",
 				"mfussenegger/nvim-dap",
+				"nvim-java/nvim-java-refactor",
 				{
 					"williamboman/mason.nvim",
 					opts = {
