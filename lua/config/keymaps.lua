@@ -3,9 +3,18 @@
 -- Add any additional keymaps here
 -- ----------- Navigation ----------- --
 vim.keymap.set({ "n", "v" }, "<Left>", "hzz")
-vim.keymap.set({ "n", "v" }, "<Down>", "jzz")
-vim.keymap.set({ "n", "v" }, "<Up>", "kzz")
+vim.keymap.set({ "n", "v" }, "<Down>", "gjzz")
+vim.keymap.set({ "n", "v" }, "<Up>", "gkzz")
 vim.keymap.set({ "n", "v" }, "<Right>", "lzz")
+vim.keymap.set({ "i" }, "<Down>", "<Esc>gjzza")
+vim.keymap.set({ "i" }, "<Up>", "<Esc>gkzza")
+
+-- Move to begin/end of displayed line
+vim.keymap.set({ "n", "v" }, "<Home>", "g^zz")
+vim.keymap.set({ "n", "v" }, "<End>", "g<End>zz")
+-- Move to begin/end of file line
+vim.keymap.set({ "n", "v" }, "<S-Home>", "^zz")
+vim.keymap.set({ "n", "v" }, "<S-End>", "<End>zz")
 
 vim.keymap.set({ "n", "v" }, "{", "{zz", {
 	desc = "Prev paragraph",
@@ -14,8 +23,11 @@ vim.keymap.set({ "n", "v" }, "}", "}zz", {
 	desc = "Next paragraph",
 })
 
-vim.keymap.set({ "n", "v" }, "<PageUp>", "<PageUp>zz", {})
-vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {})
+vim.keymap.set({ "n", "v" }, "<PageUp>", "<C-U>zz", {})
+vim.keymap.set({ "n", "v" }, "<PageDown>", "<C-D>zz", {})
+
+vim.keymap.set({ "i" }, "<PageUp>", "<Esc><C-U>zza", {})
+vim.keymap.set({ "i" }, "<PageDown>", "<Esc><C-D>zza", {})
 
 vim.keymap.set({ "n", "v" }, "n", "nzz", {
 	desc = "Next search result",
@@ -190,6 +202,13 @@ vim.keymap.set("n", "<M-X>", ":CommentDividerBox<CR>", {
 -- ------------ Register ------------- --
 vim.keymap.set("v", "<leader>p", '"_dP', {
 	desc = "Paste register to visual selection",
+})
+
+vim.keymap.set("n", "yp", ':let @+ = expand("%:p")<CR>', {
+	desc = "Yank current file path",
+})
+vim.keymap.set("n", "yP", ':let @+ = expand("%:t")<CR>', {
+	desc = "Yank current file name",
 })
 
 -- yanky
