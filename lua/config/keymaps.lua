@@ -2,10 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- ----------- Navigation ----------- --
-vim.keymap.set({ "n", "v" }, "n", "hzz")
-vim.keymap.set({ "n", "v" }, "e", "jzz")
-vim.keymap.set({ "n", "v" }, "i", "kzz")
-vim.keymap.set({ "n", "v" }, "o", "lzz")
+vim.keymap.set({ "n", "v" }, "<Left>", "hzz")
+vim.keymap.set({ "n", "v" }, "<Down>", "jzz")
+vim.keymap.set({ "n", "v" }, "<Up>", "kzz")
+vim.keymap.set({ "n", "v" }, "<Right>", "lzz")
 
 vim.keymap.set({ "n", "v" }, "{", "{zz", {
 	desc = "Prev paragraph",
@@ -17,10 +17,10 @@ vim.keymap.set({ "n", "v" }, "}", "}zz", {
 vim.keymap.set({ "n", "v" }, "<PageUp>", "<PageUp>zz", {})
 vim.keymap.set({ "n", "v" }, "<PageDown>", "<PageDown>zz", {})
 
-vim.keymap.set({ "n", "v" }, "j", "nzz", {
+vim.keymap.set({ "n", "v" }, "n", "nzz", {
 	desc = "Next search result",
 })
-vim.keymap.set({ "n", "v" }, "J", "Nzz", {
+vim.keymap.set({ "n", "v" }, "N", "Nzz", {
 	desc = "Prev search result",
 })
 
@@ -145,12 +145,12 @@ vim.keymap.set("n", "g<Tab>-", ":BufferLineGoToBuffer -1<CR>", {
 })
 
 -- -------------- Mode -------------- --
-vim.keymap.set("n", "<S-a>", "i", {
-	desc = "Insert mode",
-})
+-- vim.keymap.set("n", "<S-a>", "i", {
+-- 	desc = "Insert mode",
+-- })
 
 -- Visual Multi
-vim.keymap.set("n", "<leader>vm", ":VMSearch<CR>", {
+vim.keymap.set("n", "<leader>v", ":VMSearch<CR>", {
 	desc = "VM Search",
 	silent = true,
 })
@@ -161,12 +161,12 @@ vim.keymap.set("n", "<leader>rn", function()
 end, { expr = true, desc = "IncRename" })
 
 -- -------------- Line -------------- --
-vim.keymap.set({ "n", "v" }, "l", "o", {
-	desc = "Add a new line below",
-})
-vim.keymap.set({ "n", "v" }, "L", "O", {
-	desc = "Add a new line above",
-})
+-- vim.keymap.set({ "n", "v" }, "l", "o", {
+-- 	desc = "Add a new line below",
+-- })
+-- vim.keymap.set({ "n", "v" }, "L", "O", {
+-- 	desc = "Add a new line above",
+-- })
 vim.keymap.set({ "n", "v" }, "<M-e>", ":m+<CR>", {
 	desc = "Move line down",
 	silent = true,
@@ -175,9 +175,9 @@ vim.keymap.set({ "n", "v" }, "<M-i>", ":m-2<CR>", {
 	desc = "Move line up",
 	silent = true,
 })
-vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
-	desc = "Join line",
-})
+-- vim.keymap.set({ "n", "v" }, "<M-j>", "J", {
+-- 	desc = "Join line",
+-- })
 vim.keymap.set("n", "<M-x>", ":CommentDividerLine<CR>", {
 	desc = "Comment divider line",
 	silent = true,
