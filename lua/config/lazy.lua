@@ -1,11 +1,18 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    -- bootstrap lazy.nvim
-    -- stylua: ignore
-    vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable",
-                   lazypath})
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
-vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
@@ -17,33 +24,33 @@ require("lazy").setup({
 
 		-- languages
 		-- java
-		{
-			"nvim-java/nvim-java",
-			dependencies = {
-				"nvim-java/lua-async-await",
-				"nvim-java/nvim-java-core",
-				"nvim-java/nvim-java-test",
-				"nvim-java/nvim-java-dap",
-				"nvim-java/nvim-java-refactor",
-				"MunifTanjim/nui.nvim",
-				"neovim/nvim-lspconfig",
-				"mfussenegger/nvim-dap",
-				"nvim-java/nvim-java-refactor",
-				{
-					"williamboman/mason.nvim",
-					opts = {
-						registries = {
-							"github:nvim-java/mason-registry",
-							"github:mason-org/mason-registry",
-						},
-					},
-				},
-			},
-			config = function()
-				require("java").setup()
-				require("lspconfig").jdtls.setup({})
-			end,
-		},
+		-- {
+		-- 	"nvim-java/nvim-java",
+		-- 	dependencies = {
+		-- 		"nvim-java/lua-async-await",
+		-- 		"nvim-java/nvim-java-core",
+		-- 		"nvim-java/nvim-java-test",
+		-- 		"nvim-java/nvim-java-dap",
+		-- 		"nvim-java/nvim-java-refactor",
+		-- 		"MunifTanjim/nui.nvim",
+		-- 		"neovim/nvim-lspconfig",
+		-- 		"mfussenegger/nvim-dap",
+		-- 		"nvim-java/nvim-java-refactor",
+		-- 		{
+		-- 			"williamboman/mason.nvim",
+		-- 			opts = {
+		-- 				registries = {
+		-- 					"github:nvim-java/mason-registry",
+		-- 					"github:mason-org/mason-registry",
+		-- 				},
+		-- 			},
+		-- 		},
+		-- 	},
+		-- 	config = function()
+		-- 		require("java").setup()
+		-- 		require("lspconfig").jdtls.setup({})
+		-- 	end,
+		-- },
 
 		-- motion/navigation
 		{ "smoka7/hop.nvim" },
